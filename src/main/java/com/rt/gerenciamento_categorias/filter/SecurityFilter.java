@@ -19,8 +19,10 @@ public class SecurityFilter {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers(HttpMethod.GET, "/categorias").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/categorias").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/categorias/**").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/categorias").permitAll()
+                            .requestMatchers(HttpMethod.DELETE, "/categorias/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, "/categorias/**").permitAll()
+                                .requestMatchers(HttpMethod.PUT, "/categorias/**").permitAll()
                 )
                 .build();
     }

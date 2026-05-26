@@ -32,6 +32,11 @@ public class CategoriaController {
         return services.bucarPorId(id);
     }
 
+    @PutMapping("/{id}")
+    public Categoria update(@RequestBody Categoria categoria, @PathVariable Long id){
+        return services.update(categoria, id);
+    }
+
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id){
         services.deletar(id);

@@ -26,8 +26,19 @@ public class CategoriaServices {
         return repository.findById(id);
     }
 
+    public Categoria update(Categoria categoria, Long id){
+        Categoria response = repository.findById(id).get();
+        response.setDescricao(categoria.getDescricao());
+        response.setNome(categoria.getNome());
+
+        return repository.save(response);
+    }
+
+
     public void deletar(Long id){
         repository.deleteById(id);
     }
+
+
 
 }
