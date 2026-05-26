@@ -1,5 +1,6 @@
 package com.rt.gerenciamento_categorias.models;
 
+import com.rt.gerenciamento_categorias.enums.CategoriaEnum;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,10 @@ public class Categoria {
 
     @Column(name = "descricao_categoria")
     private String descricao;
+
+    private CategoriaEnum login;
+
+    private String password;
 
     public Categoria(){
 
@@ -42,5 +47,21 @@ public class Categoria {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public CategoriaEnum getLogin() {
+        return login;
+    }
+
+    public void setLogin(CategoriaEnum login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

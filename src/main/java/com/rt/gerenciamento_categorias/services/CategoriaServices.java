@@ -3,13 +3,16 @@ package com.rt.gerenciamento_categorias.services;
 import com.rt.gerenciamento_categorias.models.Categoria;
 import com.rt.gerenciamento_categorias.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoriaServices {
+public class CategoriaServices implements UserDetailsService {
 
     @Autowired
     private CategoriaRepository repository;
@@ -39,6 +42,10 @@ public class CategoriaServices {
         repository.deleteById(id);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return  repository.findByLogin(username);
+    }
 
 
 }
