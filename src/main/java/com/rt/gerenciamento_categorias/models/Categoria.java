@@ -3,18 +3,18 @@ package com.rt.gerenciamento_categorias.models;
 import com.rt.gerenciamento_categorias.enums.CategoriaEnum;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "tb_categoria")
+@Entity //entidade
+@Table(name = "tb_categoria") //nome alternativo da tabela no banco de dados
 public class Categoria {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //tag para identificar
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //gerar valor automaticamente
     private Long id;
 
-    @Column(name = "nome_categoria")
+    @Column(name = "nome_categoria") // nome alternativo da coluna no banco de dados
     private String nome;
 
-    @Column(name = "descricao_categoria")
+    @Column(name = "descricao_categoria") // nome alternativo da coluna no banco de dados
     private String descricao;
 
     private CategoriaEnum login;

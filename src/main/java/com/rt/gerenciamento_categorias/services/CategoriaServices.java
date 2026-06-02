@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service //cria serviços do CRUD
 public class CategoriaServices implements UserDetailsService {
 
-    @Autowired
+    @Autowired //
     private CategoriaRepository repository;
 
     public Categoria create(Categoria categoria){
@@ -42,7 +42,7 @@ public class CategoriaServices implements UserDetailsService {
         repository.deleteById(id);
     }
 
-    @Override
+    @Override //sobrescreve uma funçao
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return  repository.findByLogin(username);
     }

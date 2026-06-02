@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityFilter {
 
-    @Bean
+    @Bean //deixa pronto para uso assim que for chamada a função
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
         return http.csrf(csrf -> csrf.disable())
                 .sessionManagement( session ->
@@ -22,7 +22,7 @@ public class SecurityFilter {
                             .requestMatchers(HttpMethod.POST, "/categorias").permitAll()
                             .requestMatchers(HttpMethod.DELETE, "/categorias/**").permitAll()
                             .requestMatchers(HttpMethod.GET, "/categorias/**").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/categorias/**").permitAll()
+                            .requestMatchers(HttpMethod.PUT, "/categorias/**").permitAll()
                 )
                 .build();
     }
